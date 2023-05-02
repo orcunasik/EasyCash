@@ -6,4 +6,8 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyCash.DataAccess\EasyCash.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
