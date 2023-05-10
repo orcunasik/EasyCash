@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyCash.DataAccess.Concrete
 {
-    public class EasyCashDbContext : IdentityDbContext
+    public class EasyCashDbContext : IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
