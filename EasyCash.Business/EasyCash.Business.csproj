@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EasyCash.DataAccess\EasyCash.DataAccess.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ValidationRules\AppRoleValidations\" />
+    <Folder Include="ValidationRules\CustomerAccountValidations\" />
+    <Folder Include="ValidationRules\CustomerAccountProcessValidations\" />
   </ItemGroup>
 
 </Project>
