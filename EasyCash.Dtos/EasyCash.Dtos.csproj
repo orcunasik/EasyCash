@@ -10,4 +10,10 @@
     <ProjectReference Include="..\EasyCash.Entities\EasyCash.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\AppRoleDtos\" />
+    <Folder Include="Dtos\CustomerAccountDtos\" />
+    <Folder Include="Dtos\CustomerAccountProcessDtos\" />
+  </ItemGroup>
+
 </Project>
