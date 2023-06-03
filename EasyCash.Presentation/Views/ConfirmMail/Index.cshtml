@@ -1,0 +1,17 @@
+﻿@model ConfirmMailViewModel
+@{
+    Layout = null;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container mt-4">
+    <form method="post">
+        <h4>Lütfen Aşağıdaki Eposta Adresini Doğrulayınız!</h4>
+        <label>Kullanıcı Eposta Adresi</label>
+        <input type="text" class="form-control" asp-for="Email" value="@TempData["Email"]" />
+        <br />
+        <label>Doğrulama Kodu Giriniz</label>
+        <input type="text" class="form-control" asp-for="ConfirmCode" />
+        <br />
+        <button class="btn btn-outline-success">Doğrula</button>
+    </form>
+</div>
