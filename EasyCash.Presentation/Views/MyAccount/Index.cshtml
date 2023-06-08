@@ -1,0 +1,139 @@
+﻿@model AppUserUpdateDto
+@{
+    ViewData["Title"] = "Müşteri Profiliniz";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<div class="page-title">
+    <div class="title_left">
+        <h3>Easy Cash Müşteri Paneli</h3>
+    </div>
+
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Aranacak Kelime...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Ara!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Easy Cash <small>Profil Bilgileri Düzenleme</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form class="form-horizontal form-label-left" method="post" novalidate>
+                    <p>
+                        İletişim ve Diğer Bilgilerinizi Aşağıdan Düzenleyebilirisiniz.
+                    </p>
+                    <span class="section">Müşteri Bilgileri</span>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Adınız<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" asp-for="Name" required="required" />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Soyadınız<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" asp-for="Surname" required="required" />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Eposta<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control email" asp-for="Email" required="required" type="email" />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Parola <span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control number" type="password" asp-for="Password" required='required'>
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Parola Tekrar<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" type="password" asp-for="ConfirmPassword" required='required' />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Şehir<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" asp-for="City" required="required" />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">İlçe<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" asp-for="District" required="required" />
+                        </div>
+                    </div>
+                    <div class="field item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3  label-align">Telefon<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6">
+                            <input class="form-control" asp-for="PhoneNumber" required="required" />
+                        </div>
+                    </div>
+                    <div class="ln_solid">
+                        <div class="form-group">
+                            <div class="col-md-6 offset-md-3">
+                                <button type='submit' class="btn btn-success">Güncelle</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/gentelella-alela/vendors/validator/multifield.js"></script>
+<script src="~/gentelella-alela/vendors/validator/validator.js"></script>
+<script>
+    // initialize a validator instance from the "FormValidator" constructor.
+    // A "<form>" element is optionally passed as an argument, but is not a must
+    var validator = new FormValidator({
+        "events": ['blur', 'input', 'change']
+    }, document.forms[0]);
+    // on form "submit" event
+    document.forms[0].onsubmit = function (e) {
+        var submit = true,
+            validatorResult = validator.checkAll(this);
+        console.log(validatorResult);
+        return !!validatorResult.valid;
+    };
+    // on form "reset" event
+    document.forms[0].onreset = function (e) {
+        validator.reset();
+    };
+    // stuff related ONLY for this demo page:
+    $('.toggleValidationTooltips').change(function () {
+        validator.settings.alerts = !this.checked;
+        if (this.checked)
+            $('form .alert').remove();
+    }).prop('checked', false);
+
+</script>
