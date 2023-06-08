@@ -30,7 +30,7 @@ namespace EasyCash.Presentation.Controllers
             {
                 AppUser user = await _userManager.FindByNameAsync(loginViewModel.UserName);
                 if(user.EmailConfirmed is true)
-                    return RedirectToAction("Index", "MyProfile");
+                    return RedirectToAction("Index", "MyAccount");
 
             }
             return View();
