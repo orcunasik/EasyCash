@@ -4,6 +4,7 @@ using EasyCash.DataAccess.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyCash.DataAccess.Migrations
 {
     [DbContext(typeof(EasyCashDbContext))]
-    partial class EasyCashDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230616112639_AddedDescriptionForCustomerAccountProcess")]
+    partial class AddedDescriptionForCustomerAccountProcess
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
