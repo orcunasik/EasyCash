@@ -20,8 +20,9 @@ namespace EasyCash.Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(string mycurrency)
         {
+            ViewBag.Currency = mycurrency;
             return View();
         }
 
@@ -32,12 +33,7 @@ namespace EasyCash.Presentation.Controllers
 
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             int receiverAccountNumberId = await context.CustomerAccounts.Where(ca => ca.AccountNumber == sendMoneyForCustomerAccountProcessDto.ReceiverAccountNumber).Select(c => c.Id).FirstOrDefaultAsync();
-            int senderAccountNumberId = await context.CustomerAccounts.Where(ca => ca.AccountNumber == sendMoneyForCustomerAccountProcessDto.SenderAccountNumber).Select(c => c.Id).FirstOrDefaultAsync();
-
-            //sendMoneyForCustomerAccountProcessDto.SenderId = user.Id;
-            //sendMoneyForCustomerAccountProcessDto.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //sendMoneyForCustomerAccountProcessDto.ProcessType = "Havale";
-            //sendMoneyForCustomerAccountProcessDto.ReceiverId = receiverAccountNumberId;
+            int senderAccountNumberId = await context.CustomerAccounts.Where(au => au.AppUserId == user.Id).Where(ca => ca.Currency == "TL").Select(ca => ca.Id).FirstOrDefaultAsync();
 
             CustomerAccountProcess customerAccountProcess = new(); 
             customerAccountProcess.ProcessDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
@@ -45,6 +41,7 @@ namespace EasyCash.Presentation.Controllers
             customerAccountProcess.ProcessType = "Havale";
             customerAccountProcess.ReceiverId = receiverAccountNumberId;
             customerAccountProcess.Amount = sendMoneyForCustomerAccountProcessDto.Amount;
+            customerAccountProcess.Description = sendMoneyForCustomerAccountProcessDto.Description;
             _customerAccountProcessService.Insert(customerAccountProcess);
 
             return RedirectToAction("Index", "Test");
