@@ -34,7 +34,7 @@
                     <li>
                         <a><i class="fa fa-edit"></i> Hesap İşlemleri <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a asp-controller="SendMoney" asp-action="Index">Para Transferi</a></li>
+                            <li><a href="#">Para Transferi</a></li>
                             <li><a href="~/gentelella-alela/production/form_advanced.html">Son İşlemlerim</a></li>
                             <li><a href="~/gentelella-alela/form_validation.html">QR ile Para Gönder</a></li>
                             <li><a href="~/gentelella-alela/production/form_wizards.html">IBAN Bilgisi Paylaş</a></li>
@@ -53,6 +53,15 @@
                             <li><a href="~/gentelella-alela/production/widgets.html">Kredi Hesaplarım</a></li>
                             <li><a href="~/gentelella-alela/production/invoice.html">Dolar Hesaplarım</a></li>
                             <li><a href="~/gentelella-alela/production/inbox.html">Euro Hesaplarım</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-money"></i> Para Transferleri <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="TL">TL Transfer</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="USD">Dolar Transfer Aç</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="EUR">Euro Transfer</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="Other">Diğer Transferler</a></li>
                         </ul>
                     </li>
                     <li>
