@@ -18,6 +18,9 @@ builder.Services.AddIdentity<AppUser,AppRole>()
 builder.Services.AddScoped<ICustomerAccountProcessDal, EfCustomerAccountProcessDal>();
 builder.Services.AddScoped<ICustomerAccountProcessService, CustomerAccountProcessService>();
 
+builder.Services.AddScoped<ICustomerAccountDal, EfCustomerAccountDal>();
+builder.Services.AddScoped<ICustomerAccountService, CustomerAccountService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
