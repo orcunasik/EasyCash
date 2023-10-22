@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+@model List<CustomerAccountProcess>
+<div class="page-title">
+    <div class="title_left">
+        <h3>Son İşlemlerim</h3>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="col-md-12 col-sm-12  ">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>TL ile Yaptığınız Son İşlemler</h2>
+            <ul class="nav navbar-right panel_toolbox">
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <ul class="list-unstyled timeline">
+                @foreach (CustomerAccountProcess customerProcess in Model)
+                {
+                    <li>
+                        <div class="block">
+                            <div class="tags">
+                                <a href="" class="tag">
+                                    <span>@customerProcess.ProcessType</span>
+                                </a>
+                            </div>
+                            <div class="block_content">
+                                <h2 class="title">
+                                    <a>Gönderici: @customerProcess.SenderCustomer.AppUser.Name @customerProcess.SenderCustomer.AppUser.Surname --- Alıcı: @customerProcess.ReceiverCustomer.AppUser.Name @customerProcess.ReceiverCustomer.AppUser.Surname</a>
+                                </h2>
+                                <div class="byline">
+                                    <span>@customerProcess.ProcessDate.ToShortDateString()</span>
+                                </div>
+                                <p class="excerpt">
+                                    @customerProcess.Description
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
