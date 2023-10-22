@@ -33,6 +33,11 @@ namespace EasyCash.Business.Concrete
             customerAccountProcessDal.Insert(entity);
         }
 
+        public List<CustomerAccountProcess> MyLastProcess(int id)
+        {
+            return customerAccountProcessDal.MyLastProcess(id);
+        }
+
         public void Update(CustomerAccountProcess entity)
         {
             customerAccountProcessDal.Update(entity);
