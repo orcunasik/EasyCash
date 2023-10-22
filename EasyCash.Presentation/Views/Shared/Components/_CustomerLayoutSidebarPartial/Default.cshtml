@@ -34,10 +34,10 @@
                     <li>
                         <a><i class="fa fa-edit"></i> Hesap İşlemleri <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#">Para Transferi</a></li>
-                            <li><a href="~/gentelella-alela/production/form_advanced.html">Son İşlemlerim</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index">Para Transferi</a></li>
+                            <li><a asp-controller="MyLastProcess" asp-action="Index">Son İşlemlerim</a></li>
                             <li><a href="~/gentelella-alela/form_validation.html">QR ile Para Gönder</a></li>
-                            <li><a href="~/gentelella-alela/production/form_wizards.html">IBAN Bilgisi Paylaş</a></li>
+                            <li><a asp-controller="AccountListCopies" asp-action="Index">IBAN Bilgisi Paylaş</a></li>
                             <li><a href="~/gentelella-alela/production/form_upload.html">Hesaplarım Arası Transfer</a></li>
                             <li><a href="~/gentelella-alela/production/form_buttons.html">Cebe Havale</a></li>
                         </ul>
